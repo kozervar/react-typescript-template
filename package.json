@@ -1,33 +1,31 @@
 {
-  "name": "react-typescript-template",
+  "name": "react-webpack-typescript",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "author": "",
-  "license": "MIT",
-  "private": true,
+  "description": "A basic reack webpack and typescript starter framework",
+  "main": "webpack.config.js",
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "start-ts": "react-scripts-ts start",
-    "start": "npm-run-all -p watch-css start-ts",
-    "build": "npm run build-css && react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
-  },
-  "dependencies": {
-    "node-sass-chokidar": "0.0.3",
-    "npm-run-all": "^4.1.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts-ts": "2.12.0",
-    "rxjs": "^5.5.6"
+    "start": "webpack-dev-server",
+    "build": "webpack -p --progress --colors"
   },
   "devDependencies": {
-    "@types/jest": "^22.0.1",
-    "@types/node": "^9.3.0",
-    "@types/react": "^16.0.34",
+    "@types/react": "^16.0.27",
     "@types/react-dom": "^16.0.3",
-    "@types/rx": "^4.1.1"
+    "awesome-typescript-loader": "^3.4.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.5"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }
