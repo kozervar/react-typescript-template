@@ -1,0 +1,7 @@
+export const EMAIL_TYPES = 'EMAIL_TYPES';
+
+export const EMAIL_TYPES_ADD_USER = `${EMAIL_TYPES}::ADD_USER`;
+export type EMAIL_TYPES_ADD_USER = typeof EMAIL_TYPES_ADD_USER;
+
+export const EMAIL_TYPES_DEL_USER = `${EMAIL_TYPES}::DEL_USER`;
+export type EMAIL_TYPES_DEL_USER = typeof EMAIL_TYPES_DEL_USER;

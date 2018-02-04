@@ -5,5 +5,5 @@ import { Hello } from "./components/Hello";
 import "./styles/style.scss";
 
 const app = document.querySelector(".hello-app");
-
-ReactDOM.render(<Hello name="Marcin" />, app);
+if(app)
+    ReactDOM.render(<Hello name="Marcin" />, app);

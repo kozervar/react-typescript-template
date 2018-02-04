@@ -5,5 +5,5 @@ import { World } from "./components/World";
 import "./styles/style.scss";
 
 const app = document.querySelector(".world-app");
-
-ReactDOM.render(<World name="Malwina" />, app);
+if(app)
+    ReactDOM.render(<World name="Malwina" />, app);

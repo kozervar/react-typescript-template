@@ -18,7 +18,8 @@ module.exports = {
     entry: {
         hello: './src/helloApp.tsx',
         world: './src/worldApp.tsx',
-        vendor: ['react', 'react-dom'],
+        emailTypesApp: './src/EmailTypesApp.tsx',
+        vendor: ['react', 'react-dom', 'react-redux', 'redux', 'redux-observable', 'rxjs'],
     },
     output: {
         path: path.resolve(__dirname, "scripts/raido-react-ui"),
