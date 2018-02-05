@@ -1,24 +1,39 @@
-
 import * as constans from '../const/EmailTypesConst';
+import { Action } from 'redux';
+import { EmailType } from '../models/EmailType';
 
-export interface AddUser {
-    type: constans.EMAIL_TYPES_ADD_USER
+export interface FetchEmailTypes extends Action {
+    type: constans.FETCH_EMAIL_TYPES
 }
 
-export interface DelUser {
-    type: constans.EMAIL_TYPES_DEL_USER
+export interface FetchEmailTypesSuccess extends Action {
+    type: constans.FETCH_EMAIL_TYPES_SUCCESS,
+    payload: EmailType[];
 }
 
-export type EmailTypesAction = AddUser | DelUser;
+export interface FetchEmailTypesFailed extends Action {
+    type: constans.FETCH_EMAIL_TYPES_FAILED,
+    error: string;
+}
 
-export function addUser():AddUser {
+export type EmailTypesActions = FetchEmailTypes | FetchEmailTypesSuccess | FetchEmailTypesFailed;
+
+export function fetchEmailTypes(): FetchEmailTypes {
     return {
-        type: constans.EMAIL_TYPES_ADD_USER
+        type: constans.FETCH_EMAIL_TYPES
     };
 }
 
-export function delUser():DelUser {
+export function fetchEmailTypesSuccess(emailTypes:EmailType[]): FetchEmailTypesSuccess {
     return {
-        type: constans.EMAIL_TYPES_DEL_USER
+        type: constans.FETCH_EMAIL_TYPES_SUCCESS,
+        payload: [...emailTypes]
+    };
+}
+
+export function fetchEmailTypesFailed(error:string): FetchEmailTypesFailed {
+    return {
+        type: constans.FETCH_EMAIL_TYPES_FAILED,
+        error: error
     };
 }

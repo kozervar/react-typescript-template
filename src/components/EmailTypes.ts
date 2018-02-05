@@ -2,17 +2,20 @@ import * as actions from './../actions/EmailTypesActions';
 import { connect, Dispatch } from 'react-redux';
 import { EmailTypesStoreState } from '../store/EmailTypesStore';
 import { EmailTypesContainer } from './EmailTypesContainer';
+import { EmailType } from '../models/EmailType';
 
-export function mapStateToProps({ userCount }: EmailTypesStoreState) {
+export function mapStateToProps(state: EmailTypesStoreState) {
+    console.log('mapStateToProps', state);
+    let c:any[] = [];
     return {
-        userCount: userCount
+        emailTypes: c
     }
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.EmailTypesAction>) {
+
+export function mapDispatchToProps(dispatch: Dispatch<actions.EmailTypesActions>) {
     return {
-        onAdd: () => dispatch(actions.addUser()),
-        onDel: () => dispatch(actions.delUser()),
+        onRefresh: () => dispatch(actions.fetchEmailTypes())
     }
 }
 
