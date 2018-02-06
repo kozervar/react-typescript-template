@@ -9,7 +9,7 @@ import { EmailTypesStoreState } from './store/EmailTypesStore';
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
-export default function configureStore(initialState:EmailTypesStoreState = { emailTypes: [] }) {
+export default function configureStore(initialState = {}) {
     const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const store = createStore(
         rootReducer,

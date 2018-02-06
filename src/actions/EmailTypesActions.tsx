@@ -16,7 +16,12 @@ export interface FetchEmailTypesFailed extends Action {
     error: string;
 }
 
-export type EmailTypesActions = FetchEmailTypes | FetchEmailTypesSuccess | FetchEmailTypesFailed;
+export interface ShowEmailTypeDetails extends Action {
+    type: constans.SHOW_EMAIL_DETAILS
+    payload: EmailType
+}
+
+export type EmailTypesActions = FetchEmailTypes | FetchEmailTypesSuccess | FetchEmailTypesFailed | ShowEmailTypeDetails;
 
 export function fetchEmailTypes(): FetchEmailTypes {
     return {
@@ -35,5 +40,12 @@ export function fetchEmailTypesFailed(error:string): FetchEmailTypesFailed {
     return {
         type: constans.FETCH_EMAIL_TYPES_FAILED,
         error: error
+    };
+}
+
+export function showEmailTypeDetails(emailType:EmailType): ShowEmailTypeDetails {
+    return {
+        type: constans.SHOW_EMAIL_DETAILS,
+        payload: emailType
     };
 }

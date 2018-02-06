@@ -3,19 +3,19 @@ import { connect, Dispatch } from 'react-redux';
 import { EmailTypesStoreState } from '../store/EmailTypesStore';
 import { EmailTypesContainer } from './EmailTypesContainer';
 import { EmailType } from '../models/EmailType';
+import { RootState } from '../reducers/index';
 
-export function mapStateToProps(state: EmailTypesStoreState) {
-    console.log('mapStateToProps', state);
-    let c:any[] = [];
+export function mapStateToProps(state: RootState) {
     return {
-        emailTypes: c
+        emailTypes: state.emailTypes.emailTypes,
     }
 }
 
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.EmailTypesActions>) {
     return {
-        onRefresh: () => dispatch(actions.fetchEmailTypes())
+        onRefresh: () => dispatch(actions.fetchEmailTypes()),
+        onItemClick: (emailType:EmailType) => dispatch(actions.showEmailTypeDetails(emailType)),
     }
 }
 

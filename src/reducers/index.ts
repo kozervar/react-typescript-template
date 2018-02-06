@@ -1,13 +1,18 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
+import { reducer as formReducer, FormStateMap } from 'redux-form';
 
 import {emailTypeReducer} from './EmailTypesReducer'
+import { EmailTypesStoreState } from '../store/EmailTypesStore';
 
-const rootReducer = combineReducers({
+export interface RootState {
+    emailTypes: EmailTypesStoreState,
+    form: FormStateMap,
+}
+
+const rootReducer = combineReducers<RootState>({
     emailTypes: emailTypeReducer,
     // routing: routerReducer,
-    form: formReducer,
-    def: (state = {}) => state,
+    form: formReducer
 });
 
 export default rootReducer;
